@@ -1,0 +1,55 @@
+<nav class="bg-gray-800">
+  <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+    <div class="relative flex h-16 items-center justify-between">
+      <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+        <!-- Mobile menu button-->
+        <button type="button" class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+          <span class="absolute -inset-0.5"></span>
+          <span class="sr-only">Open main menu</span>
+          <!--
+            Icon when menu is closed.
+
+            Menu open: "hidden", Menu closed: "block"
+          -->
+          <svg class="block size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+          <svg class="hidden size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+      <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+        <div class="flex shrink-0 items-center text-blue-500">
+          <svg class="size-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" xml:space="preserve"><path fill="currentColor" d="M42.849 19.788S24.728 37.753 18.006 44.251c-6.723 6.498-2.434 7.834-.897 9.745 0 0 6.915 9.173 11.141 11.658 4.226 2.484 7.491 2.293 9.796.382 2.305-1.911 26.945-26.602 26.945-26.602l1.1-22.13-23.242 2.484zm9.733 11.977c-2.263 0-4.098-1.826-4.098-4.077s1.834-4.077 4.098-4.077 4.098 1.825 4.098 4.077-1.835 4.077-4.098 4.077z"/><path fill="currentColor" d="m66.949 12.109-26.741 2.07-26.519 26.384A9.075 9.075 0 0 0 11 47.019a9.079 9.079 0 0 0 2.689 6.455L26.61 66.328A9.177 9.177 0 0 0 33.098 69h.007a9.193 9.193 0 0 0 6.48-2.67l26.521-26.384 2.184-27.943-1.341.106zM63.874 38.92 37.956 64.707a6.867 6.867 0 0 1-4.858 1.999 6.857 6.857 0 0 1-4.859-1.999L15.319 51.85a6.795 6.795 0 0 1-2.013-4.832 6.787 6.787 0 0 1 2.013-4.833L41.236 16.4l24.548-1.902-1.91 24.422zM52.48 32.779a5.398 5.398 0 0 0 3.81-1.568l-.814-.812.816.811a5.349 5.349 0 0 0-.002-7.579 5.393 5.393 0 0 0-3.808-1.568 5.384 5.384 0 0 0-3.811 1.57 5.322 5.322 0 0 0-1.578 3.788c0 1.367.529 2.744 1.578 3.79a5.397 5.397 0 0 0 3.809 1.568zm-2.18-7.524a3.08 3.08 0 0 1 2.182-.902 3.077 3.077 0 0 1 2.179.9 3.061 3.061 0 0 1-.001 4.337 3.086 3.086 0 0 1-2.179.895 3.065 3.065 0 0 1-2.177-.897 3.04 3.04 0 0 1-.905-2.168c.001-.79.298-1.568.901-2.165z"/></svg>
+        </div>
+        <div class="hidden sm:ml-6 sm:flex">
+          <div class="flex space-x-4 items-center ">
+            <a routerLink="/"       [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="bg-gray-900" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white" aria-current="page">Home</a>
+            <a routerLink="/products" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="bg-gray-900" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Products</a>
+          </div>
+        </div>
+      </div>
+      <div class="absolute inset-y-0 right-0 flex gap-4 items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+
+        <a routerLink="cart" class="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+          <span class="absolute -inset-1.5"></span>
+          <span class="sr-only">View cart</span>
+          <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312"/>
+          </svg>
+
+        </a>
+
+      </div>
+    </div>
+  </div>
+
+
+
+</nav>
+
+
+<div class="container mx-auto max-w-7xl px-2 py-8 sm:px-6 lg:px-8">
+  <router-outlet></router-outlet>
+</div>

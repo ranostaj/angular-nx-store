@@ -14,7 +14,23 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@eshop/cart-cart": ["libs/cart/feature/cart/src/index.ts"],
+      "@eshop/cart-checkout": ["libs/cart/feature/chackout/src/index.ts"],
+      "@eshop/cart-service": ["libs/cart/data/services/src/index.ts"],
+      "@eshop/orders-detail": ["libs/orders/featrue/detail/src/index.ts"],
+      "@eshop/orders-list": ["libs/orders/featrue/list/src/index.ts"],
+      "@eshop/orders-model": ["libs/orders/data/models/src/index.ts"],
+      "@eshop/orders-service": ["libs/orders/data/services/src/index.ts"],
+      "@eshop/orders-ui": ["libs/orders/ui/src/index.ts"],
+      "@eshop/orders-util": ["libs/orders/util/src/index.ts"],
+      "@eshop/products-detail": ["libs/products/feature/detail/src/index.ts"],
+      "@eshop/products-list": ["libs/products/feature/list/src/index.ts"],
+      "@eshop/products-model": ["libs/products/data/models/src/index.ts"],
+      "@eshop/products-service": ["libs/products/data/services/src/index.ts"],
+      "@eshop/shared-ui": ["libs/shared/ui/src/index.ts"],
+      "@eshop/shared-util": ["libs/shared/util/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
