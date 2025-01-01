@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLinkActive, RouterModule } from '@angular/router';
+import { CartService } from '@eshop/cart-service';
 
 @Component({
   imports: [RouterModule, RouterLinkActive],
@@ -8,5 +9,7 @@ import { RouterLinkActive, RouterModule } from '@angular/router';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
+  readonly #cartService = inject(CartService);
   title = 'eshop';
+  public cartCount = this.#cartService.getProductCount();
 }

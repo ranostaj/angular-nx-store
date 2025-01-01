@@ -7,6 +7,6 @@ import { ProductsDetailComponent } from '@eshop/products-detail';
 export const appRoutes: Route[] = [
   {path: '', pathMatch: 'full', component: HomeComponent},
   {path: 'products', component: ProductsListComponent},
-  {path: 'product/:id', component: ProductsDetailComponent},
+  {path: 'product/:slug', component: ProductsDetailComponent},
   {path: 'cart', component: CartComponent}
 ];

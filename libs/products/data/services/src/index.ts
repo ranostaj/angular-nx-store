@@ -1,1 +1,1 @@
-export * from './lib/products-service.component';
+export * from './lib/product.service';

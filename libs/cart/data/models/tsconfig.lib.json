@@ -13,5 +13,5 @@
     "jest.config.ts",
     "src/**/*.test.ts"
   ],
-  "include": ["src/**/*.ts", "../../../cart/data/models/src/lib/cart.model.ts"]
+  "include": ["src/**/*.ts"]
 }

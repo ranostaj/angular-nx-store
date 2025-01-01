@@ -17,6 +17,7 @@
     "paths": {
       "@eshop/cart-cart": ["libs/cart/feature/cart/src/index.ts"],
       "@eshop/cart-checkout": ["libs/cart/feature/chackout/src/index.ts"],
+      "@eshop/cart-models": ["libs/cart/data/models/src/index.ts"],
       "@eshop/cart-service": ["libs/cart/data/services/src/index.ts"],
       "@eshop/orders-detail": ["libs/orders/featrue/detail/src/index.ts"],
       "@eshop/orders-list": ["libs/orders/featrue/list/src/index.ts"],
