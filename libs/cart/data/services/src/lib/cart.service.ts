@@ -20,16 +20,16 @@ export class CartService {
     return this.cart;
   }
 
-  addItem(product: Product) {
+  addItem(product: Product, quantity: number) {
     this.cart.update(({items}) => {
       if(!items){
-        return {items: [{...product, quantity: 1}]};
+        return {items: [{...product, quantity}]};
       }
       const item = items.find((item) => item.id === product.id);
       if(item){
-        item.quantity++;
+        item.quantity += quantity;
       } else {
-        items.push({...product, quantity: 1});
+        items.push({...product, quantity});
       }
       return {items};
     });
