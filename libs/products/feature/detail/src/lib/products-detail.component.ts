@@ -7,6 +7,7 @@ import { ProductService } from '@eshop/products-service';
 import { Product } from '@eshop/products-model';
 import { Observable } from 'rxjs';
 import { FormsModule } from '@angular/forms';
+import { CartStore } from '@eshop/cart/store';
 
 @Component({
   selector: 'lib-products-detail',
@@ -16,13 +17,11 @@ import { FormsModule } from '@angular/forms';
 })
 export class ProductsDetailComponent implements OnInit {
 
-  readonly #cartService = inject(CartService);
+  readonly cartStore = inject(CartStore);
   readonly #productService = inject(ProductService);
   private readonly router = inject(ActivatedRoute);
   public slug = input('');
   public product$!: Observable<Product>;
-  public cart = this.#cartService.getItems();
-  public cartCount = this.#cartService.getProductCount();
   public quantity = signal(1);
 
   ngOnInit() {
@@ -30,7 +29,7 @@ export class ProductsDetailComponent implements OnInit {
   }
 
   addToCart(product: Product) {
-    this.#cartService.addItem(product, this.quantity());
+    this.cartStore.add(product, this.quantity());
   }
 
 

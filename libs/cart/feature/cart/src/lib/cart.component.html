@@ -2,39 +2,50 @@
   <div class="w-3/4 bg-white px-10 py-10">
     <div class="flex justify-between border-b pb-8">
       <h1 class="font-semibold text-2xl">Shopping Cart</h1>
-      <h2 class="font-semibold text-2xl">3 Items</h2>
+      <h2 class="font-semibold text-2xl">{{cartStore.itemsCount()}} Items</h2>
     </div>
-    <div class="flex mt-10 mb-5">
-      <h3 class="font-semibold text-gray-600 text-xs uppercase w-2/5">Product Details</h3>
-      <h3 class="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Quantity</h3>
-      <h3 class="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Price</h3>
-      <h3 class="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Total</h3>
+    <div class="flex mt-10 mb-5 ">
+      <h3 class="font-semibold text-gray-600 text-xs uppercase w-2/6">Product Details</h3>
+      <h3 class="font-semibold text-center text-gray-600 text-xs uppercase w-1/6 text-center">Quantity</h3>
+      <h3 class="font-semibold text-center text-gray-600 text-xs uppercase w-1/6 text-center">Price</h3>
+      <h3 class="font-semibold text-center text-gray-600 text-xs uppercase w-1/6 text-center">Total</h3>
+      <h3 class="font-semibold text-center text-gray-600 text-xs uppercase w-1/6  text-center">Action</h3>
     </div>
 
-    @for (item of cart().items; track $index) {
+    @for (item of cart(); track $index) {
     <div class="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5">
-      <div class="flex w-2/5"> <!-- product -->
+      <div class="flex w-2/6"> <!-- product -->
         <div class="w-20">
           <img class="h-24" [src]="item.image" alt="">
         </div>
-        <div class="flex flex-col justify-between ml-4 flex-grow">
+        <div class="flex flex-col gap-2  justify-center flex-grow">
           <span class="font-bold text-sm">{{item.name}}</span>
           <span class="text-red-500 text-xs">{{item.manufacturer}}</span>
-          <a href="#" class="font-semibold hover:text-red-500 text-gray-500 text-xs">Remove</a>
         </div>
       </div>
-      <div class="flex justify-center w-1/5">
-        <svg class="fill-current text-gray-600 w-3" viewBox="0 0 448 512"><path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"/>
-        </svg>
+      <div class="flex justify-center w-1/6">
+        <button (click)="decreaseQuantity(item)" class="text-gray-500">
+          <svg class="fill-current text-gray-600 w-3" viewBox="0 0 448 512"><path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"/>
+          </svg>
+        </button>
 
-        <input  [value]="item.quantity"  class="mx-2 border text-center w-8" type="text" value="1">
+        <input [value]="item.quantity" (change)="updateQuantity($event, item)"    class="mx-2 border text-center w-8" type="text" value="1">
 
+        <button (click)="increaseQuantity(item)" class="text-gray-500">
         <svg class="fill-current text-gray-600 w-3" viewBox="0 0 448 512">
           <path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"/>
         </svg>
+       </button>
       </div>
-      <span class="text-center w-1/5 font-semibold text-sm">{{item.price}}</span>
-      <span class="text-center w-1/5 font-semibold text-sm">{{item.price * item.quantity }}</span>
+      <span class="text-center w-1/6 font-semibold text-sm">{{item.price | currency}}</span>
+      <span class="text-center w-1/6 font-semibold text-sm">{{item.price * item.quantity | currency}}</span>
+      <div class="text-center w-1/6">
+        <button (click)="removeItem(item)" class="w-4 text-gray-40 text-red-500">
+          <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"   viewBox="0 0 24 24">
+            <path fill="currentColor" d="M 10.806641 2 C 10.289641 2 9.7956875 2.2043125 9.4296875 2.5703125 L 9 3 L 4 3 A 1.0001 1.0001 0 1 0 4 5 L 20 5 A 1.0001 1.0001 0 1 0 20 3 L 15 3 L 14.570312 2.5703125 C 14.205312 2.2043125 13.710359 2 13.193359 2 L 10.806641 2 z M 4.3652344 7 L 5.8925781 20.263672 C 6.0245781 21.253672 6.877 22 7.875 22 L 16.123047 22 C 17.121047 22 17.974422 21.254859 18.107422 20.255859 L 19.634766 7 L 4.3652344 7 z"></path>
+            </svg>
+        </button>
+      </div>
     </div>
    }
 
@@ -65,7 +76,7 @@
     <div class="border-t mt-8">
       <div class="flex font-semibold justify-between py-6 text-sm uppercase">
         <span>Total cost</span>
-        <span>$600</span>
+        <span>{{cartStore.total() | currency}}</span>
       </div>
       <button class="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full">Checkout</button>
     </div>

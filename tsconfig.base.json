@@ -30,7 +30,8 @@
       "@eshop/products-model": ["libs/products/data/models/src/index.ts"],
       "@eshop/products-service": ["libs/products/data/services/src/index.ts"],
       "@eshop/shared-ui": ["libs/shared/ui/src/index.ts"],
-      "@eshop/shared-util": ["libs/shared/util/src/index.ts"]
+      "@eshop/shared-util": ["libs/shared/util/src/index.ts"],
+      "@eshop/cart/store": ["libs/cart/data/store/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

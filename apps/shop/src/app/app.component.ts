@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { RouterLinkActive, RouterModule } from '@angular/router';
-import { CartService } from '@eshop/cart-service';
+import { CartStore } from '@eshop/cart/store';
 
 @Component({
   imports: [RouterModule, RouterLinkActive, CommonModule],
@@ -10,7 +10,6 @@ import { CartService } from '@eshop/cart-service';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  readonly #cartService = inject(CartService);
+  readonly cartStore = inject(CartStore);
   title = 'eshop';
-  public cartCount = this.#cartService.getProductCount();
 }
