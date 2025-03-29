@@ -1,11 +1,13 @@
-import { computed } from '@angular/core';
+import { computed, inject } from '@angular/core';
 import { CartItem } from '@eshop/cart-models';
 import { Product } from '@eshop/products-model';
+import { ToastService } from '@eshop/shared-services';
 import {
   patchState,
   signalStore,
   withComputed,
   withMethods,
+  withProps,
   withState,
 } from '@ngrx/signals';
 
@@ -16,6 +18,7 @@ import {
 export interface CartState<T> {
   items: CartItem<T>[];
   totalPrice?: number;
+  itemAdded: boolean;
 }
 
 /**
@@ -35,6 +38,7 @@ export const initialState: CartState<Product> = {
     },
   ],
   totalPrice: 0,
+  itemAdded: false,
 };
 
 /**
@@ -61,6 +65,9 @@ function computeItemsCount(items: CartItem<Product>[]): number {
 export const CartStore = signalStore(
   { providedIn: 'root' },
   withState(initialState),
+  withProps((state) => ({
+    toastService: inject(ToastService),
+  })),
   withComputed((state) => ({
     total: computed(() => computeTotal(state.items())),
     count: computed(() => computeCount(state.items())),
@@ -73,10 +80,11 @@ export const CartStore = signalStore(
      * @param quantity - The quantity to add (must be positive)
      */
     add(item: Product, quantity: number) {
+
       if (quantity <= 0) {
         throw new Error('Quantity must be greater than 0');
       }
-
+      patchState(state, {itemAdded: false });
       const items = [...state.items()];
       const itemIndex = items.findIndex((i) => i.id === item.id);
 
@@ -88,7 +96,8 @@ export const CartStore = signalStore(
       } else {
         items.push({ ...item, quantity });
       }
-      patchState(state, { items });
+      patchState(state, { items, itemAdded: true });
+      state.toastService.add(`${item.name} added to cart`, 3000);
     },
 
     /**

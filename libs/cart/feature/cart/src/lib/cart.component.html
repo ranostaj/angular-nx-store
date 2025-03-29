@@ -1,4 +1,15 @@
-<div class="flex shadow-md my-10">
+@if(cartStore.itemsCount() === 0) {
+  <div class="flex flex-col justify-center rounded-lg items-center shadow-md p-10">
+    <h1 class="text-4xl">Your cart is empty</h1>
+    <div class="flex">
+      <a routerLink="/products" class="px-5 py-4 mt-8 rounded text-lg outline-none tracking-wide bg-blue-600 text-white hover:bg-blue-700">Explore Products</a>
+    </div>
+  </div>
+}
+
+@if(cartStore.itemsCount()){
+<!-- Shopping Cart -->
+<div class="flex shadow-md my-10 w-full">
   <div class="w-3/4 bg-white px-10 py-10">
     <div class="flex justify-between border-b pb-8">
       <h1 class="font-semibold text-2xl">Shopping Cart</h1>
@@ -59,8 +70,8 @@
   <div id="summary" class="w-1/4 px-8 py-10 bg-gray-100">
     <h1 class="font-semibold text-2xl border-b pb-8">Order Summary</h1>
     <div class="flex justify-between mt-10 mb-5">
-      <span class="font-semibold text-sm uppercase">Items 3</span>
-      <span class="font-semibold text-sm">590$</span>
+      <span class="font-semibold text-sm uppercase">Items {{cartStore.itemsCount()}}</span>
+      <span class="font-semibold text-sm">{{cartStore.total() | currency}}</span>
     </div>
     <div>
       <label class="font-medium inline-block mb-3 text-sm uppercase">Shipping</label>
@@ -82,3 +93,4 @@
     </div>
   </div>
 </div>
+}

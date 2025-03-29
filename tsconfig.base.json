@@ -19,6 +19,7 @@
       "@eshop/cart-checkout": ["libs/cart/feature/chackout/src/index.ts"],
       "@eshop/cart-models": ["libs/cart/data/models/src/index.ts"],
       "@eshop/cart-service": ["libs/cart/data/services/src/index.ts"],
+      "@eshop/cart/store": ["libs/cart/data/store/src/index.ts"],
       "@eshop/orders-detail": ["libs/orders/featrue/detail/src/index.ts"],
       "@eshop/orders-list": ["libs/orders/featrue/list/src/index.ts"],
       "@eshop/orders-model": ["libs/orders/data/models/src/index.ts"],
@@ -29,9 +30,9 @@
       "@eshop/products-list": ["libs/products/feature/list/src/index.ts"],
       "@eshop/products-model": ["libs/products/data/models/src/index.ts"],
       "@eshop/products-service": ["libs/products/data/services/src/index.ts"],
+      "@eshop/shared-services": ["libs/shared/data/services/src/index.ts"],
       "@eshop/shared-ui": ["libs/shared/ui/src/index.ts"],
-      "@eshop/shared-util": ["libs/shared/util/src/index.ts"],
-      "@eshop/cart/store": ["libs/cart/data/store/src/index.ts"]
+      "@eshop/shared-util": ["libs/shared/util/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -1,13 +1,11 @@
-import { Component, inject, Input, input,  model,  OnDestroy,  OnInit, signal, Signal } from '@angular/core';
-import { toSignal } from  '@angular/core/rxjs-interop';
 import { CommonModule } from '@angular/common';
-import { CartService } from '@eshop/cart-service';
-import { ActivatedRoute, Router, RouterModule } from '@angular/router';
-import { ProductService } from '@eshop/products-service';
-import { Product } from '@eshop/products-model';
-import { Observable } from 'rxjs';
+import { Component, inject, input, OnInit, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 import { CartStore } from '@eshop/cart/store';
+import { Product } from '@eshop/products-model';
+import { ProductService } from '@eshop/products-service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'lib-products-detail',
@@ -19,7 +17,6 @@ export class ProductsDetailComponent implements OnInit {
 
   readonly cartStore = inject(CartStore);
   readonly #productService = inject(ProductService);
-  private readonly router = inject(ActivatedRoute);
   public slug = input('');
   public product$!: Observable<Product>;
   public quantity = signal(1);

@@ -10,6 +10,9 @@ import { FormsModule } from '@angular/forms';
   selector: 'lib-cart',
   imports: [CommonModule, RouterModule, FormsModule],
   templateUrl: './cart.component.html',
+  styles: [
+    ':host {  flex-direction: column; justify-content: center; align-items: center; }',
+  ],
 })
 export class CartComponent {
  readonly cartStore = inject(CartStore);
